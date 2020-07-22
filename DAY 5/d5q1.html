@@ -3,22 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D5q3</title>
+    <title>Question 1</title>
 </head>
 <body>
     <script>
-//use higher order function to filter the odd number
+
         let arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-        let odd = arr.filter(el=>el%2==0);
+        let odd = arr.filter(el=>el%2!=0);
         console.log(odd);
-//takes two positive number from user
-        let num=0;
-            num = prompt("Enter a positive number?");
-//makes an array of numbers till the number given by user 
-        console.log(arr);
-//generates and array of cubes of filted numbers
-    let oddSquares = arr.filter(el=>el%2==0).map(el=>el**3);
-    console.log(oddSquares);
+
+
+    let oddcube = arr.filter(el=>el%2!=0).map(el=>el**3);
+    console.log(oddcube);
     </script>
 </body>
 </html>
