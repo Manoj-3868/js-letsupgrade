@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D5q2</title>
+    <title>Question 2</title>
 </head>
 <body>
     <script>
@@ -12,13 +12,12 @@
       this.name = name;
       this.age = age;
       this.email = email;
-      this.luCoins = 0;
+      this.luCoinsadd = 0;
+      this.lucoinssub = 0;
       this.courses = [];
     }
 
-    static greet(){
-        console.log("Hello There");
-    }
+    
 
     login(){
         console.log(`${this.name} has logged in`);
@@ -28,15 +27,8 @@
         console.log(`${this.name} has logged out`);
         return this;
     }
-    addCoins(){
-        this.luCoins++;
-        console.log(`${this.name} has ${this.luCoins} coins`);
-        return this;
-    }
-    getDetails(){
-        console.log(`Name is ${this.name}, email is ${this.email}`);
-        return this;
-    }
+    
+   
 
 }
 
@@ -45,18 +37,27 @@ class Moderator extends User{
         super(name,age,email);
         this.role = role;
     }
-
-    deleteUser(user){
-        users = users.filter(u =>{
-            return u.email != user.email; 
-        })
+        addCoins() {
+        this.luCoinsadd++;
+        console.log(`${this.name} has ${this.luCoinsadd} coins`);
+        return this;
+             }
+    removecoins(){
+        this.lucoinssub--;
+        console.log(`${this.name}has${this.lucoinssub}coins`);
+        return this;
+              }
     }
 
-}
 
+   
 class Admin extends Moderator{
    addCourse(user,course){
        user.courses.push(course);
+       console.log(user);
+   }
+   removecourse(user,course){
+       user.courses.pop(course);
        console.log(user);
    }
 }
@@ -72,22 +73,17 @@ users.forEach(element => {
     console.log(element);
 });
 
-User.greet();
+
 admin.addCourse(user1,'Javascript');
 admin.addCourse(user1,'Python');
+admin.removecoins(user1,'python');
 
 
 
- user1.login()
- user1.addCoins();
- user1.addCoins();
- user1.addCoins();
- user1.logout()
 
- user1.login().addCoins().addCoins().getDetails().logout();
+ user1.login().addCoins().addCoins().removecoins().getDetails().logout();
 
- mod.deleteUser(user1);
- console.log(users);
+
 
     </script>
 </body>
